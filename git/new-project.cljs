@@ -27,8 +27,7 @@
 
 (def cli-options
   [["-n" "--name NAME" "Repo name"]
-   ["-d" "--description DESCRIPTION" "Repo description"]
-   ["-h" "--help"]])
+   ["-d" "--description DESCRIPTION" "Repo description"]])
 
 (let [{name :name, description :description} (:options (parse-opts *command-line-args* cli-options))] 
   (shell/sh "/bin/sh" "-c" (apply str ["mkdir " (System/getenv "CODE_PATH") name ]))
